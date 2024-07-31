@@ -17,6 +17,13 @@ To make a mosaic you use start.exe providing parameters in this order:
 Example of usage:
 start.exe .\in.png .\rickroll_minimum\ 5 1 212
 
+# DIFFERENCE BETWEEN START, START2 AND START3
+Start pastes images from list and removes used images from it. When the list becomes empty, it copies the old list. Due to this it can make periodical "lines" which look like artifacts
+
+Start2 does not remove the image from list after using it. Produces most original-like images, but quite often restrains itself to a little variety of images
+
+Start3 works like start, but sometimes (once per 3 usage or if random number is dividible by 4) appends random image from original list. Partially removes the "artifacts" of start, but makes more noise in output
+
 # EDIT.EXE
 To edit the size of images you use edit.exe providing parameters in this order:
 * indir - Directory with images used for mosaic. The images should be named only with numbers in order. For example, 0001.png, 0002.png, ..., 9201.png

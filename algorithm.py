@@ -37,6 +37,7 @@ def alg(image: Image.Image, construct: list[tuple[Image.Image, Color]]) -> Image
     if (blocky*numy < ysize):
         numy += 1
     
+    temp: int = 1
     for bx in range(numx):
         for by in range(numy):
             # Block (bx, by)
@@ -52,6 +53,9 @@ def alg(image: Image.Image, construct: list[tuple[Image.Image, Color]]) -> Image
             const.sort(key= lambda t: color.distsq(t[1]))
             (resimg, rescol) = const[0]
             const.pop(0)
+            if (temp%3==0 or random.randint(0,100)%4==0):
+                const.append(random.choice(construct))
+            temp+=1
             img.paste(resimg, (bx*blockx, by*blocky))
     
     return img
